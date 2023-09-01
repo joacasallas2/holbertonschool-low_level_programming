@@ -1,7 +1,7 @@
-## holbertonschool-low_level_programming #
+# holbertonschool-low_level_programming #
 
-# In this repo, we are going to find projects releated to low level programming in C language #
-
+## In this repo, we are going to find projects releated to low level programming in C language ##
+|
 1. 0x00. C - Hello, World
 2. 0x01. C - Variables, if, else, while
 3. 0x02. C - Functions, nested loops
@@ -23,6 +23,8 @@
 19. 0x14. C - Bit manipulation
 20. 0x18. C - Dynamic libraries
 21. 0x1C. C - Makefiles
+|
+
 
 ## Autor: joacasallas  
-##Contact: joacasallas@gmail.com  
+## Contact: joacasallas@gmail.com  
