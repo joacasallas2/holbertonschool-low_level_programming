@@ -4,7 +4,7 @@
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-# General #
+### General ###
 * Why C programming is awesome
 * Who invented C
 * Who are Dennis Ritchie, Brian Kernighan and Linus Torvalds
@@ -19,7 +19,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 * How to find the right header to include in your source code when using a standard library function
 * How does the main function influence the return value of the program
 
-# Tasks #  
+## Tasks ##  
 0. [Preprocessor](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/0x00-hello_world/0-preprocessor)|
 1. [Compiler](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/0x00-hello_world/1-compiler)|
 2. [Assembler](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/0x00-hello_world/2-assembler)|
@@ -31,6 +31,6 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 8. [Intel](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/0x00-hello_world/100-intel)|
 9. [UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/0x00-hello_world/101-quote.c)|
 
-# Autor:#  joacasallas :information_desk_person:  
-# contact:  joacasallas@gmail.com  
+## Autor:##  joacasallas :information_desk_person:  
+### contact:###  joacasallas@gmail.com  
 
