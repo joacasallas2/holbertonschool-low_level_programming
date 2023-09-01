@@ -3,8 +3,8 @@
 ### In this repo, we are going to find projects releated to low level programming in C language
 	 
 | Directories |
-|_____________|
-|1. [0x00. C - Hello, World](https://github.com/joacasallas2/holbertonschool-low_level_programming/tree/main/0x00-hello_world)i|
+|-------------|
+|1. [0x00. C - Hello, World](https://github.com/joacasallas2/holbertonschool-low_level_programming/tree/main/0x00-hello_world)|
 |2. 0x01. C - Variables, if, else, while|
 |3. 0x02. C - Functions, nested loops|
 |4. 0x03. C - Debugging|
@@ -25,7 +25,7 @@
 |19. 0X14. C - Bit manipulation|
 |20. 0x18. C - Dynamic libraries|
 |21. 0x1C. C - Makefiles|
-|_____________________|
 
-## Autor ## joacasallas
-## Contact ## joacasallas@gmail.com
+
+## Autor: joacasallas
+## Contact: joacasallas@gmail.com
