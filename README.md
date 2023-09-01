@@ -1,6 +1,6 @@
 ## holbertonschool-low_level_programming
 
-### In this repo, we are going to find projects releated to low level programming in C language
+In this repo, we are going to find projects releated to low level programming in C language
 	 
 | Directories |
 |-------------|
@@ -27,5 +27,5 @@
 |21. 0x1C. C - Makefiles|
 
 
-## Autor: joacasallas
-## Contact: joacasallas@gmail.com
+## Autor: joacasallas  
+Contact: joacasallas@gmail.com
