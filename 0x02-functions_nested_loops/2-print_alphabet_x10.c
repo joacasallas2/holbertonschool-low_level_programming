@@ -1,8 +1,9 @@
 /**
   * print_alphabet_x10 - prints 10 times the alphabet, in lowercase,
-  * @c: The character to print
+  * @c: character to print 
   * Return: void
   */
+
 int _putchar(char c);
 
 void print_alphabet_x10(void)
