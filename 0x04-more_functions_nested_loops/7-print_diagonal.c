@@ -1,6 +1,6 @@
 /**
   * print_diagonal - function that draws a diagonal line on the terminal.
-  * @n: The number of times the character \ should be printed
+  *
   * @c: The character to print
   * Return: Nothing (void function)
   */
