@@ -13,11 +13,12 @@ void print_array(int *a, int n)
 	for (i = 0; a[i] != '\0'; i++)
 	{
 	}
-	if (i != (n - 1))
+	if (i != n)
 	{
 		printf("\n");
 	}
 	else
+	{
 		for (i = 0; i < n; i++)
 		{
 			if (i == (n - 1))
@@ -29,5 +30,6 @@ void print_array(int *a, int n)
 				printf("%d, ", a[i]);
 			}
 		}
+	}
 }
 
