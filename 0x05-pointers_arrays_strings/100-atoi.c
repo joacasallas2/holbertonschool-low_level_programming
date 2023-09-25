@@ -5,19 +5,15 @@
   */
 int _atoi(char *s)
 {
-	int i, index, len, mul, number, sign, found;
+	int i, index, len, mul, number, sign, found, maxReached;
 
-	found = 0;
-	mul = 1;
-	sign = 1;
-	number = 0;
+	found = number = maxReached = 0;
+	mul = sign = 1;
 
 	for (index = 0; s[index] != '\0'; index++)
 	{
 		if (s[index] < 48 || s[index] > 57)
-		{
 			continue;
-		}
 		else
 		{
 			found = 1;
@@ -36,9 +32,15 @@ int _atoi(char *s)
 	{
 		if (s[len] < 48 || s[len] > 57)
 			break;
+		if (mul == 1000000000)
+		{
+			maxReached = 1;
+			break;
+		}
 		mul *= 10;
 	}
-	mul = mul / 10;
+	if (maxReached == 0)
+		mul = mul / 10;
 	for (; index <= len; index++, mul /= 10)
 		number += (((s[index] - '0') * mul) * sign);
 	return (number);
