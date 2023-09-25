@@ -5,7 +5,7 @@
   */
 int _atoi(char *s)
 {
-	int index, len, mul, number, sign, found;
+	int i, index, len, mul, number, sign, found;
 
 	found = 0;
 	mul = 1;
@@ -27,8 +27,11 @@ int _atoi(char *s)
 	if (found == 0)
 		return (0);
 	if (index != 0)
-		if (s[index - 1] == '-')
-			sign = -1;
+		for (i = index; i >= 0; i--)
+		{
+			if (s[i] == '-')
+				sign *= -1;
+		}
 	for (len = index; s[len] != '\0'; len++)
 	{
 		if (s[len] < 48 || s[len] > 57)
