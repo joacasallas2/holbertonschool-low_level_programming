@@ -6,8 +6,15 @@
   */
 void reverse_array(int *a, int n)
 {
-	int i, aux;
+	int i, len, aux;
 
+	for (len = 1; a[len]; len++)
+	{
+	}
+	if (n > len)
+	{
+		return;
+	}
 	for (i = 0; i <= ((n - 1) / 2); i++)
 	{
 		aux = a[i];
