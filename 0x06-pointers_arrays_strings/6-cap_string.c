@@ -7,7 +7,7 @@ char *cap_string(char *ptr)
 {
 	int i;
 
-	for (i = 1; ptr[i]; i++)
+	for (i = 0; ptr[i]; i++)
 	{
 		if (ptr[i] == '\t')
 		{
