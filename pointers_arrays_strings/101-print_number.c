@@ -8,34 +8,42 @@ int _putchar(char c);
 
 void print_number(int n)
 {
-	int number, div;
-	
-	number = n / 10;
-	div = 1;
+	int div, num, pendDiv, lastDigit;
 
-	if (n < 0)
+	num = n / 10;
+	pendDiv = 0;
+	lastDigit = (n % 10) * -1;
+	if (num < 0)
 	{
-		number = number * -1;
+		num = num * -1;
 	}
-	if (n == 0)
+	for (div = 1; (num / div) >= 1; div *= 10)
 	{
-		_putchar('0');
-		return;
+		if (div == 100000000)
+		{
+			pendDiv = 1;
+			break;
+		}
 	}
-	for (; number >= 1; number /= 10, div *= 10)
+	if (pendDiv == 1)
 	{
-	}
-	if (n < 0)
-	{
-		_putchar('-');
-		n = n * -1;
+		n = n / 10;
 	}
 	for (; div >= 1; div /= 10)
 	{
-		if (n / div < 1)
+		if (n < 0)
 		{
-			_putchar('0' + n);
+			_putchar('-');
+			n = n * -1;
 		}
 		_putchar('0' + (n / div) % 10);
+		if (n == 0)
+		{
+			return;
+		}
+	}
+	if (pendDiv == 1)
+	{
+		_putchar('0' + lastDigit);
 	}
 }
