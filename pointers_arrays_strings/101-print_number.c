@@ -12,7 +12,7 @@ void print_number(int n)
 
 	num = n / 10;
 	pendDiv = 0;
-	lastDigit = (n % 10) * -1;
+	lastDigit = (n % 10);
 	if (num < 0)
 	{
 		num = num * -1;
@@ -44,6 +44,10 @@ void print_number(int n)
 	}
 	if (pendDiv == 1)
 	{
+		if (lastDigit < 0)
+		{
+			lastDigit *= -1;
+		}
 		_putchar('0' + lastDigit);
 	}
 }
