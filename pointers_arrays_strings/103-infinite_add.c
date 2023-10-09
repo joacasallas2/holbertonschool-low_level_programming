@@ -17,6 +17,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	for (i = 1, mult = 1; n1[i]; i++, mult *= 10)
 	{
 	}
+	if ((size_r - 1) <= i)
+		return (0);
 	for (i = 0; mult > 1; i++, mult /= 10)
 	{
 		num1 += (n1[i] - 48) * mult;
@@ -39,8 +41,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[i] = 48 + (res / div) % 10;
 	}
 	r[i] = 48 + (res / div) % 10;
-	if ((size_r - 1) <= i)
-		return (0);
-	else
-		return (r);
+	return (r);
 }
