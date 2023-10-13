@@ -8,42 +8,43 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k, l;
+	int i, j, k, line;
 	char array[9] = "\1\2\3\4\5\6\7\n\0";
 
-	for (i = 0, j = 1; i < size; i += 2, j++)
+	for (i = 0; i < size; i += 2)
 	{
-		if (i % 5 == 0)
+		if (i % 10 == 0 && i != 0)
+		{
+			for (j = 0; j < 10; j++)
+			{
+				for (k = 0; k < 9; k++)
+				{
+					if (b[i + j] == array[k])
+						b[i + j] = '.';
+				}
+				printf("%c", b[i + j - 10]);
+			}
+			line = 0;
+			printf("\n");
+		}
+		if (i % 10 == 0)
 			printf("%.8x: %.2x%.2x ", i, b[i], b[i + 1]);
 		else
 			printf("%.2x%.2x ", b[i], b[i + 1]);
-		if (j % 5 == 0)
-		{
-			for (k = 0; k < 10; k++)
-			{
-				for (l = 0; l < 9; l++)
-				{
-					if (b[k + i - 8] == array[l])
-						b[k + i - 8] = '.';
-				}
-				printf("%c", b[k + i - 8]);
-			}
-			printf("\n");
-		}
+		line += 2;
 	}
-	if (i >= size)
+	for (i = 0; i < (10 - line); i += 2)
 	{
-		printf("          ");
-		for (k = 0; b[k + i - 6]; k++)
+		printf("%s%s ", "  ", "  ");
+	}
+	for (j = 0; j < line; j++)
+	{
+		for (k = 0; k < 9; k++)
 		{
-			for (l = 0; l < 9; l++)
-			{
-				if (b[k + i - 6] == array[l])
-					b[k + i - 6] = '.';
-			}
-			printf("%c", b[k + i - 6]);
+			if (b[i + j] == array[k])
+				b[i + j] = '.';
 		}
-		printf(".");
+		printf("%c", b[size - line + j]);
 	}
 	printf("\n");
 }
