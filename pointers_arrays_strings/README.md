@@ -10,6 +10,9 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 * What are the differences between pointers and arrays  
 * How to use strings and how to manipulate them  
 * Scope of variables
+* What are pointers to pointers and how to use them  
+* What are multidimensional arrays and how to use them  
+* What are the most common C standard library functions to manipulate strings  
 
 ## Tasks 1 ##  
 1. [0-reset_to_98.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/0-reset_to_98.c)
