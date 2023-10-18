@@ -41,6 +41,18 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 12. [104-print_buffer.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/104-print_buffer.c)
 
 
+# Tasks 3 ##  
+0. [0-memset.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/0-memset.c)
+0. [1-memcpy.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/1-memcpy.c)
+0. [2-strchr.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/2-strchr.cc)
+0. [3-strspn.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/3-strspn.c)
+0. [4-strpbrk.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/4-strpbrk.c)
+0. [5-strstr.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/5-strstr.c)
+0. [7-print_chessboard.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/7-print_chessboard.c)
+0. [8-print_diagsums.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/8-print_diagsums.c)
+0. [100-set_string.c](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/100-set_string.c)
+0. [101-crackme_password](https://github.com/joacasallas2/holbertonschool-low_level_programming/blob/main/pointers_arrays_strings/101-crackme_password)
+
 ## Autor:  joacasallas :information_desk_person:  
 contact:  joacasallas@gmail.com  
 
