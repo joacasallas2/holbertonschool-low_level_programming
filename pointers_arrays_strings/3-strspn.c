@@ -22,12 +22,10 @@ unsigned int _strspn(char *s, char *accept)
 	}
 	if (s[i - 1] != ' ')
 	{
-		for (; s[i] != ' ' && i >= 0; i--)
+		for (; s[i] != ' ' && i > 0; i--)
 		{
 		}
-		i++;
 	}
-
 	for (; s[i] != ' ' && s[i] != '\0'; i++)
 	{
 		len++;
