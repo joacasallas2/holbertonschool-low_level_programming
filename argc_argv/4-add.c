@@ -1,8 +1,32 @@
+#include "main.h"
 /**
-  * _atoi -  function that convert a string to an integer
-  * @s: The Pointer to the string
-  * Return: the number or 0 if are not numbers
-  */
+ * main - program that adds positive numbers
+ * @argc: The number of arguments
+ * @argv: The pointer to the array of arguments
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char *argv[])
+{
+	int i, sum = 0;
+
+	for (i = 1; i < argc; i++)
+	{
+		if (_atoi(argv[i]) == 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += _atoi(argv[i]);
+	}
+	printf("%d\n", sum);
+	return (0);
+}
+
+/**
+ * _atoi -  function that convert a string to an integer
+ * @s: The Pointer to the string
+ * Return: the number or 0 if are not numbers
+ */
 int _atoi(char *s)
 {
 	int i, index, len, mul, number, sign, found, maxReached;
