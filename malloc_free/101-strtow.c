@@ -11,15 +11,11 @@ char **strtow(char *str)
 
 	j = k = l = numStr = 0;
 	if (str == NULL)
-	{
 		return (NULL);
-	}
 	for (i = 0; str[i]; i++)
 	{
 		while (str[i] == ' ')
-		{
 			i++;
-		}
 		if (str[i] != ' ' && str[i] != '\0')
 		{
 			numStr++;
@@ -28,25 +24,17 @@ char **strtow(char *str)
 			}
 		}
 		if (str[i] == '\0')
-		{
 			break;
-		}
 	}
-	if (str == NULL || numStr == 0)
-	{
+	if (numStr == 0)
 		return (NULL);
-	}
 	ptr = (char **)malloc(sizeof(char *) * (numStr + 1));
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	for (i = 0; str[i]; i++)
 	{
 		while (str[i] == ' ')
-		{
 			i++;
-		}
 		if (str[i] != ' ' && str[i] != '\0')
 		{
 			l = i;
