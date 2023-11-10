@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "0-object_like_macro.h": "c"
     }
 }
