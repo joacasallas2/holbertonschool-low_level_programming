@@ -1,5 +1,5 @@
 #include "dog.h"
-char *_strcpy(char *dest, char *src);
+char *_strdup(char *str);
 /**
  * new_dog -  function that creates a new dog.
  * @name: The name
@@ -11,7 +11,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
 	char *name2, *owner2;
-	float age2;
 	int i;
 
 	new_dog = malloc(sizeof(*new_dog));
@@ -22,43 +21,53 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (i = 0; name[i]; i++)
 	{
 	}
-	name2 = malloc(sizeof(char *) * i);
+	name2 = (char *)malloc(sizeof(char) * (i + 1));
 	if (name2 == NULL)
 	{
 		return (NULL);
 	}
-	name2 = _strcpy(name2, name);
+	name2 = _strdup(name);
 	for (i = 0; owner[i]; i++)
 	{
 	}
-	owner2 = malloc(sizeof(char *) * i);
+	owner2 = (char *)malloc(sizeof(char) * (i + 1));
 	if (owner2 == NULL)
 	{
 		return (NULL);
 	}
-	owner2 = _strcpy(owner2, owner);
-	age2 = age;
+	owner2 = _strdup(owner);
 	new_dog->name = name2;
-	new_dog->age = age2;
+	new_dog->age = age;
 	new_dog->owner = owner2;
 	return (new_dog);
 }
 
 /**
- * _strcpy - function that copies the string pointed to by src,
- * including the terminating null byte (\0), to the buffer pointed to by dest
- * @dest: The pointer to the buffer to store the string copied
- * @src: The pointer to the string to copy
- * Return: The ponter to dest
+ * _strdup - function that returns a pointer to a newly allocated
+ * space in memory
+ * @str: The pointer to the string given
+ * Return: pointer to the newly space allocated
  */
-char *_strcpy(char *dest, char *src)
+char *_strdup(char *str)
 {
 	int i;
+	char *p;
 
-	for (i = 0; src[i] != '\0'; i++)
+	if (str == NULL)
 	{
-		dest[i] = src[i];
+		return (NULL);
 	}
-	dest[i] = '\0';
-	return (dest);
+	for (i = 0; str[i]; i++)
+	{
+	}
+	p = (char *)malloc(sizeof(char) * i + 1);
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; str[i]; i++)
+	{
+		p[i] = str[i];
+	}
+	return (p);
 }
