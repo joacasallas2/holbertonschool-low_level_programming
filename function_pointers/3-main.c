@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	n2 = atoi(argv[3]);
 	o = argv[2];
 	fun_ptr = get_op_func(o);
-	if (fun_ptr == NULL)
+	if (fun_ptr == NULL || strlen(o) > 1)
 	{
 		printf("Error\n");
 		exit(99);
