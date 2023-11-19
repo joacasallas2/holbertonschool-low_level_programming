@@ -7,25 +7,30 @@
  */
 int main(int argc, char *argv[])
 {
-	int result;
+	int result, n1, n2;
+	char *o;
 	int (*fun_ptr)(int, int);
-	char ops[] = "+-*/%";
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (*argv[2] == ops[2] || *argv[2] == ops[3] || *argv[2] == ops[4])
+	n1 = atoi(argv[1]);
+	n2 = atoi(argv[3]);
+	o = argv[2];
+	fun_ptr = get_op_func(o);
+	if (fun_ptr == NULL)
 	{
-		if (*argv[3] == 48)
-		{
-			printf("Error\n");
-			exit(100);
-		}
+		printf("Error\n");
+		exit(99);
 	}
-	fun_ptr = get_op_func(argv[2]);
-	result = fun_ptr(atoi(argv[1]), atoi(argv[3]));
+	if ((*o == '/' || *o == '%') && n2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	result = fun_ptr(n1, n2);
 	printf("%d\n", result);
 	return (0);
 }
