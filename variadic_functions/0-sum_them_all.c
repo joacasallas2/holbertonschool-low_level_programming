@@ -2,7 +2,7 @@
 /**
  * sum_them_all - function that returns the sum of all its parameters.
  * @n: The number of arguments that come
- * Return: The result
+ * Return: Always 0 (Success)
  */
 int sum_them_all(const unsigned int n, ...)
 {
