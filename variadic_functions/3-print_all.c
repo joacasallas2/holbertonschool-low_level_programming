@@ -1,4 +1,7 @@
 #include "variadic_functions.h"
+
+void func1(char s, va_list args);
+
 /**
  * print_all - function that prints anything.
  * @format: list of types of arguments passed to the function
@@ -8,8 +11,8 @@ void print_all(const char *const format, ...)
 {
 	va_list args;
 	char buffer[BUFSIZ];
-	int numArgs, i, j, result, flag = 0;
-	char *resultString, array[] = "cifs";
+	int numArgs, i, j, flag = 0;
+	char array[] = "cifs";
 
 	va_start(args, format);
 	numArgs = vsnprintf(buffer, BUFSIZ, format, args);
@@ -22,35 +25,7 @@ void print_all(const char *const format, ...)
 		{
 			if (format[i] == array[j])
 			{
-
-				if (format[i] == 's')
-				{
-					if (args == NULL)
-					{
-						resultString = "(nill)";
-					}
-					else
-					{
-						resultString = va_arg(args, char *);
-					}
-					printf("%s", resultString);
-				}
-				else
-				{
-					result = va_arg(args, int);
-					if (format[i] == 'f')
-					{
-						printf("%f", (double)result);
-					}
-					if (format[i] == 'i')
-					{
-						printf("%i", result);
-					}
-					if (format[i] == 'c')
-					{
-						printf("%c", result);
-					}
-				}
+				func1(format[i], args);
 				flag = 1;
 			}
 			if (flag == 1 && i != numArgs - 1)
@@ -63,4 +38,22 @@ void print_all(const char *const format, ...)
 		i++;
 	}
 	printf("\n");
+}
+
+/**
+ * func1 - function that prints anything.
+ * @s: format passed
+ * @args: argument passed
+ * Return: Nothing (void function)
+ */
+void func1(char s, va_list args)
+{
+	if (s == 'c')
+		printf("%c", va_arg(args, int));
+	else if (s == 'i')
+		printf("%i", va_arg(args, int));
+	else if (s == 'f')
+		printf("%f", (double)va_arg(args, int));
+	else if (s == 's')
+		printf("%s", va_arg(args, char *));
 }
