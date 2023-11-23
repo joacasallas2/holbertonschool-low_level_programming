@@ -9,10 +9,12 @@
 void print_all(const char *const format, ...)
 {
 	va_list args;
-	int i;
+	char buffer[BUFSIZ];
+	int i, numArgs;
 	int (*fun_ptr)(va_list args);
 
 	va_start(args, format);
+	numArgs = vsnprintf(buffer, BUFSIZ, format, args);
 	i = 0;
 	while (format[i])
 	{
@@ -23,6 +25,10 @@ void print_all(const char *const format, ...)
 			continue;
 		}
 		fun_ptr(args);
+		if (i < numArgs - 1)
+		{
+			printf(", ");
+		}
 		i++;
 	}
 	va_end(args);
@@ -64,7 +70,7 @@ int getChar(va_list args)
 	int element;
 
 	element = va_arg(args, int);
-	printf("%c, ", element);
+	printf("%c", element);
 	return (0);
 }
 /**
@@ -77,7 +83,7 @@ int getInt(va_list args)
 	int element;
 
 	element = va_arg(args, int);
-	printf("%i, ", element);
+	printf("%i", element);
 	return (0);
 }
 /**
@@ -90,7 +96,7 @@ int getFloat(va_list args)
 	float element;
 
 	element = va_arg(args, double);
-	printf("%f, ", element);
+	printf("%f", element);
 	return (0);
 }
 /**
@@ -103,6 +109,6 @@ int getString(va_list args)
 	char *elementString;
 
 	elementString = va_arg(args, char *);
-	printf("%s, ", elementString);
+	printf("%s", elementString);
 	return (0);
 }
