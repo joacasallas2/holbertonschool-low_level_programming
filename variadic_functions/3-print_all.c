@@ -102,10 +102,6 @@ int getString(va_list args)
 	char *elementString;
 
 	elementString = va_arg(args, char *);
-	if (elementString == NULL)
-	{
-		elementString = "(nil)";
-	}
 	printf("%s, ", elementString);
 	return (0);
 }
