@@ -9,27 +9,23 @@
 void print_all(const char *const format, ...)
 {
 	va_list args;
-	char buffer[BUFSIZ];
-	int i, numArgs;
+	int i;
 	int (*fun_ptr)(va_list args);
 
 	va_start(args, format);
-	numArgs = vsnprintf(buffer, BUFSIZ, format, args);
 	i = 0;
 	while (format[i])
 	{
 		fun_ptr = get_op_func(format[i]);
-		if (fun_ptr == NULL)
+		if (fun_ptr != NULL && format[i++])
 		{
+			fun_ptr(args);
+			printf(", ");
 			i++;
 			continue;
 		}
-		fun_ptr(args);
-		if (i < numArgs - 1)
-		{
-			printf(", ");
-		}
 		i++;
+		continue;
 	}
 	va_end(args);
 	printf("\n");
@@ -109,6 +105,10 @@ int getString(va_list args)
 	char *elementString;
 
 	elementString = va_arg(args, char *);
+	if (elementString == NULL)
+	{
+		elementString = "(nil)";
+	}
 	printf("%s", elementString);
 	return (0);
 }
