@@ -9,53 +9,36 @@
 void print_all(const char *const format, ...)
 {
 	va_list args;
-	int i;
-	int (*fun_ptr)(va_list args);
-
-	va_start(args, format);
-	i = 0;
-	while (format[i])
-	{
-		fun_ptr = get_op_func(format[i]);
-		if (fun_ptr != NULL && format[i++])
-		{
-			fun_ptr(args);
-			printf(", ");
-			i++;
-			continue;
-		}
-		i++;
-		continue;
-	}
-	va_end(args);
-	printf("\n");
-}
-
-/**
- * get_op_func - function that selects the correct function
- * @s: arguments passed to the function
- * Return: The pointer to the function
- */
-int (*get_op_func(char s))(va_list args)
-{
+	int i, j;
 	op_t ops[] = {
 	    {"c", getChar},
 	    {"i", getInt},
 	    {"f", getFloat},
 	    {"s", getString},
 	};
-	int i = 0;
 
-	while (i < 4)
+	va_start(args, format);
+	i = 0;
+	while (format[i])
 	{
-		if (*ops[i].op == s)
+		j = 0;
+		while (j < 4)
 		{
-			return (ops[i].f);
+			if (*ops[j].op != format[i])
+			{
+				j++;
+				continue;
+			}
+			ops[j].f(args);
+			j++;
+			printf(", ");
 		}
 		i++;
 	}
-	return (NULL);
+	va_end(args);
+	printf("\n");
 }
+
 /**
  * getChar - Function that prints a char
  * @args: The list of args to run
