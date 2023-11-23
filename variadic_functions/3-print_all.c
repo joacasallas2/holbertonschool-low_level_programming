@@ -10,6 +10,7 @@ void print_all(const char *const format, ...)
 {
 	va_list args;
 	int i, j;
+	char *separator = "";
 	op_t ops[] = {
 	    {"c", getChar},
 	    {"i", getInt},
@@ -29,9 +30,10 @@ void print_all(const char *const format, ...)
 				j++;
 				continue;
 			}
+			printf("%s", separator);
+			separator = ", ";
 			ops[j].f(args);
 			j++;
-			printf(", ");
 		}
 		i++;
 	}
