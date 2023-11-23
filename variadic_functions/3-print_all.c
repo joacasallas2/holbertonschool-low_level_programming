@@ -22,16 +22,14 @@ void print_all(const char *const format, ...)
 		if (fun_ptr == NULL)
 		{
 			i++;
+			continue;
 		}
-		else
+		fun_ptr(args);
+		if (i < numArgs - 1)
 		{
-			fun_ptr(args);
-			if (i < numArgs - 1)
-			{
-				printf(", ");
-			}
-			i++;
+			printf(", ");
 		}
+		i++;
 	}
 	printf("\n");
 }
