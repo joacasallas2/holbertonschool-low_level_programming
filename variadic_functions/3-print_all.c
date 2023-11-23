@@ -25,6 +25,7 @@ void print_all(const char *const format, ...)
 		fun_ptr(args);
 		i++;
 	}
+	va_end(args);
 	printf("\n");
 }
 
@@ -86,10 +87,10 @@ int getInt(va_list args)
  */
 int getFloat(va_list args)
 {
-	int element;
+	float element;
 
-	element = va_arg(args, int);
-	printf("%f, ", (double)element);
+	element = va_arg(args, double);
+	printf("%f, ", element);
 	return (0);
 }
 /**
