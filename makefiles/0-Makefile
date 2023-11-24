@@ -1,0 +1,13 @@
+CC=gcc
+CFLAGS= -c -Wall
+objs = main.o school.o
+all=school
+
+school: $(objs)
+	$(CC) $(objs) -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) $<
+
+clean:
+	rm -rf *.o
