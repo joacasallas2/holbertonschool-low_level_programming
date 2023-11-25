@@ -10,9 +10,3 @@ int main(void)
 	print_school();
 	return (EXIT_SUCCESS);
 }
-/* School */
-/* School2 */
-/* School */
-/* School */
-/* School */
-/* School */
