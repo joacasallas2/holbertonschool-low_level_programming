@@ -11,7 +11,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	int i, exp, sum, num, pow;
 
-	if (*b == ('\0'))
+	if (*b == '\0' || b == NULL)
 	{
 		return (0);
 	}
