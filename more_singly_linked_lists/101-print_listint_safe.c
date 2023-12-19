@@ -20,16 +20,16 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)slow, slow->n);
 		i++;
-		if (fast == NULL)
-		{
-			fast = head;
-		}
 		fast = fast->next->next;
 		slow = slow->next;
 		if (fast == slow)
 		{
 			printf("-> %d\n%d", slow->n, i);
 			return (i);
+		}
+		if (fast == NULL)
+		{
+			fast = head;
 		}
 	}
 	return (i);
