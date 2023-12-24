@@ -29,14 +29,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	if (readed < letters)
-	{
-		fprintf(stderr, "%s", buf);
-	}
-	else
-	{
-		fprintf(stdout, "%s", buf);
-	}
+	fprintf(stdout, "%s", buf);
 	close(fd);
 	return (readed);
 }
