@@ -23,13 +23,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	readed = read(fd, buf, letters);
-	if (readed == '\0')
+	buf[readed] = '\0';
+	if (readed == 0)
 	{
 		return (0);
 	}
-	buf[readed] = '\0';
-	fprintf(stdout, "%s", buf);
-	fflush(stdout);
+	if (readed < letters)
+	{
+		fprintf(stderr, "%s", buf);
+	}
+	else
+	{
+		fprintf(stdout, "%s", buf);
+	}
 	close(fd);
 	return (readed);
 }
