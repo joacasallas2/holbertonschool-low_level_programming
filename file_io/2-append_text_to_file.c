@@ -19,7 +19,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	if (strlen(text_content) == 0)
+	if (strlen(text_content) == 0 || text_content == NULL)
 	{
 		return (1);
 	}
