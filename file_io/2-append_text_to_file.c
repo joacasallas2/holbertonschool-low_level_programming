@@ -14,14 +14,14 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
+	if (text_content == NULL)
+	{
+		return (1);
+	}
 	fd = open(filename, O_APPEND | O_RDWR);
 	if (fd < 0)
 	{
 		return (-1);
-	}
-	if (strlen(text_content) == 0 || text_content == NULL)
-	{
-		return (1);
 	}
 	wrote = write(fd, text_content, strlen(text_content));
 	if (wrote != strlen(text_content) || wrote == '\0')
