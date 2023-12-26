@@ -7,12 +7,12 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd1, fd2, closed1, closed2;
+	int fd1, fd2, closed1, closed2, readed;
 	char *buf;
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	buf = malloc(sizeof(char) * 1024);
@@ -21,19 +21,35 @@ int main(int argc, char *argv[])
 		return ('\0');
 	}
 	fd1 = open(argv[1], O_RDONLY);
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
 	if (fd1 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
+	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close(fd1);
 		exit(99);
 	}
-	read(fd1, buf, 1024);
-	write(fd2, buf, strlen(buf));
+	while ((readed = read(fd1, buf, 1024)) > 0)
+	{
+		if (readed <= 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			close(fd1);
+			close(fd2);
+			exit(99);
+		}
+		if (readed != write(fd2, buf, strlen(buf)))
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(fd1);
+			close(fd2);
+			exit(99);
+		}
+	}
 	closed1 = close(fd1);
 	if (closed1 < 0)
 	{
