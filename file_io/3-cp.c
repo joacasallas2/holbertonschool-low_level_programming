@@ -1,4 +1,5 @@
 #include "main.h"
+int close_fd(int fd);
 /**
  * main - program that copies the content of a file to another file.
  * @argc: The number of arguments
@@ -7,18 +8,13 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd1, fd2, closed1, closed2, readed;
-	char *buf;
+	int fd1, fd2, readed;
+	char buf[1024];
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
-	}
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-	{
-		return ('\0');
 	}
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 < 0 || argv[1] == NULL)
@@ -35,14 +31,7 @@ int main(int argc, char *argv[])
 	}
 	while ((readed = read(fd1, buf, 1024)) > 0)
 	{
-		if (readed <= 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			close(fd1);
-			close(fd2);
-			exit(99);
-		}
-		if (readed != write(fd2, buf, strlen(buf)))
+		if (readed != write(fd2, buf, readed))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(fd1);
@@ -50,16 +39,27 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
-	closed1 = close(fd1);
-	if (closed1 < 0)
+	if (readed < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		exit(100);
 	}
-	closed2 = close(fd2);
-	if (closed2 < 0)
+	close_fd(fd1);
+	close_fd(fd2);
+	return (0);
+}
+
+/**
+ * close_fd - function to close file descriptor
+ * @fd: file descriptor
+ * Return: 0 on success
+ */
+int close_fd(int fd)
+{
+	int closed;
+
+	closed = close(fd);
+	if (closed < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 	return (0);
