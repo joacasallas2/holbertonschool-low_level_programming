@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
 	}
 	if (readed < 0)
 	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
 	close_fd(fd1);
 	close_fd(fd2);
