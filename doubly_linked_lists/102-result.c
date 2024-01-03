@@ -23,9 +23,8 @@ int main(void)
 			buffer = string_number(res);
 			len = strlen(buffer);
 			len2 = len;
-			for (l = 0; l < (len / 2) - 1; l++, len2--)
+			for (l = 0; l < (len / 2); l++, len2--)
 			{
-				printf("j[%d] * k[%d] = res[%d], buffer[l] = [%c] y buffer[len -1] = [%c] \n", j, k, res, buffer[l], buffer[len - 1]);
 				if (buffer[l] != buffer[len2 - 1])
 				{
 					flag = 0;
@@ -35,9 +34,10 @@ int main(void)
 			}
 			if (flag == 1)
 			{
-				printf("palindrome is = %d", res);
+				printf("palindrome is = j[%d] * k[%d] = res[%d]\n", j, k, res);
 				return (res);
 			}
+			flag = 1;
 		}
 		if (j > 100)
 		{
