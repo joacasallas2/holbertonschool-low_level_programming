@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node;
 	const unsigned char *new_key;
 
-	new_key = (const unsigned char *)key;
+	new_key = (const unsigned char *)strdup(key);
 
 	if (new_key == NULL)
 	{
