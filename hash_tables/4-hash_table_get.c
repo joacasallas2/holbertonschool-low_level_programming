@@ -14,25 +14,37 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		return (NULL);
 	}
-	while (ht->array[i] == NULL)
+	while (i <= ht->size)
 	{
+		while (ht->array[i] == NULL)
+		{
+			i++;
+		}
+		while (ht->array[i]->key)
+		{
+			while (ht->array[i] == NULL)
+			{
+				i++;
+			}
+			if (strcmp(ht->array[i]->key, key) == 0)
+			{
+				return (ht->array[i]->value);
+			}
+			if (ht->array[i]->next)
+			{
+				ht->array[i] = ht->array[i]->next;
+			}
+			else
+			{
+				break;
+			}
+			i++;
+		}
 		i++;
-	}
-	while (ht->array[i]->key)
-	{
-		if (strcmp(ht->array[i]->key, key) == 0)
-		{
-			return (ht->array[i]->value);
-		}
-		if (ht->array[i]->next)
-		{
-			ht->array[i] = ht->array[i]->next;
-		}
-		else
+		if (i <= ht->size)
 		{
 			break;
 		}
-		i++;
 	}
 	return (NULL);
 }
