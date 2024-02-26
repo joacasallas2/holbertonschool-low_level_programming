@@ -8,13 +8,29 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	int i = 0;
+	unsigned long int i = 0;
 
-	while (ht->array[i])
+	if (ht == NULL || key == NULL)
+	{
+		return (NULL);
+	}
+	while (ht->array[i] == NULL)
+	{
+		i++;
+	}
+	while (ht->array[i]->key)
 	{
 		if (strcmp(ht->array[i]->key, key) == 0)
 		{
 			return (ht->array[i]->value);
+		}
+		if (ht->array[i]->next)
+		{
+			ht->array[i] = ht->array[i]->next;
+		}
+		else
+		{
+			break;
 		}
 		i++;
 	}
