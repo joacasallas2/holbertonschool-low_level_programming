@@ -10,6 +10,8 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i = 0;
 	int flag = 0;
 
+	if (ht == NULL)
+		return;
 	printf("{");
 	while (ht)
 	{
